@@ -34,20 +34,19 @@
 
     // TODO #2 - Loop over jobs dictionary and display all job fields
 
-    @*foreach (Dictionary<string, string> job in ViewBag.jobs)
-    {
-        <table>
+    @foreach (Dictionary<string, string> job in ViewBag.jobs) {
+        <table class="job-listing">
+            @foreach (KeyValuePair<string, string> field in job) {
+                <tr>
+                    <td><b>@field.Key</b></td>
+                    <td>@field.Value</td>
+                </tr>
+
+            }
 
         </table>
 
-    }*@
+            }
 
-    @*<table>
-        @for (int i = 0; i < ViewBag.jobs.Count; i++)
-        {
-            <tr class="@( i % 2 == 0 ? "even" : "odd" ) ">
-                <td><a asp-controller="Search" asp-action="Results" asp-route-column="@ViewBag.column" asp-route-value="@ViewBag.items[i]">@ViewBag.items[i]</a></td>
-            </tr>
-        }
-    </table>*@
+   
 }
