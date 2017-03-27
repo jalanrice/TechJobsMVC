@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using TechJobs.Models;
 
@@ -19,6 +20,7 @@ namespace TechJobs.Controllers
         public IActionResult Results(string searchType, string searchTerm)
         {
             ViewBag.columns = ListController.columnChoices;
+            ViewBag.previous = searchType;
 
 
             if (searchType.Equals("all"))
