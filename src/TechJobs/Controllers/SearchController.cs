@@ -25,13 +25,13 @@ namespace TechJobs.Controllers
 
             if (searchType.Equals("all"))
             {
-                List<Dictionary<string, string>> jobs = JobData.FindByValue(searchTerm);
+                IEnumerable<Dictionary<string, string>> jobs = JobData.FindByValue(searchTerm);
                 ViewBag.jobs = jobs;
                 return View("Index");
             }
             else
             {
-                List<Dictionary<string, string>> jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
+                IEnumerable<Dictionary<string, string>> jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
                 //ViewBag.column = searchType;
                 ViewBag.jobs = jobs;
                 return View("Index");
